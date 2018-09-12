@@ -20,6 +20,7 @@ const (
 
 	// Values
 	IntValue     = "IntValue"
+	Int64Value   = "Int64Value"
 	FloatValue   = "FloatValue"
 	StringValue  = "StringValue"
 	BooleanValue = "BooleanValue"
