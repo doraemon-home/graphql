@@ -3,8 +3,8 @@ package graphql_test
 import (
 	"testing"
 
-	"github.com/graphql-go/graphql"
-	"github.com/graphql-go/graphql/benchutil"
+	"github.com/doraemon-home/graphql"
+	"github.com/doraemon-home/graphql/benchutil"
 )
 
 type B struct {

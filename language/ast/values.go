@@ -1,7 +1,7 @@
 package ast
 
 import (
-	"github.com/graphql-go/graphql/language/kinds"
+	"github.com/doraemon-home/graphql/language/kinds"
 )
 
 type Value interface {
@@ -13,6 +13,7 @@ type Value interface {
 // Ensure that all value types implements Value interface
 var _ Value = (*Variable)(nil)
 var _ Value = (*IntValue)(nil)
+var _ Value = (*Int64Value)(nil)
 var _ Value = (*FloatValue)(nil)
 var _ Value = (*StringValue)(nil)
 var _ Value = (*BooleanValue)(nil)
@@ -79,6 +80,36 @@ func (v *IntValue) GetLoc() *Location {
 }
 
 func (v *IntValue) GetValue() interface{} {
+	return v.Value
+}
+
+// Int64Value implements Node, Value
+type Int64Value struct {
+	Kind  string
+	Loc   *Location
+	Value string
+}
+
+func NewInt64Value(v *Int64Value) *Int64Value {
+	if v == nil {
+		v = &Int64Value{}
+	}
+	return &Int64Value{
+		Kind:  kinds.Int64Value,
+		Loc:   v.Loc,
+		Value: v.Value,
+	}
+}
+
+func (v *Int64Value) GetKind() string {
+	return v.Kind
+}
+
+func (v *Int64Value) GetLoc() *Location {
+	return v.Loc
+}
+
+func (v *Int64Value) GetValue() interface{} {
 	return v.Value
 }
 
